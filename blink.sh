@@ -12,7 +12,7 @@ done
 
 while true; do
  BTN0=`gpio read 3` #read first time
- if [ $BTN0 == 1 ]; then
+ if [ $BTN0 == 0 ]; then
    echo "btn pressed"
  fi
  gpio write 2 1
@@ -21,7 +21,7 @@ while true; do
  sleep 2
  BTN1=`gpio read 3` #read second time
  if [ $BTN0 == $BTN1 ]; then
-  if [ $BTN1 == 1 ]; then
+  if [ $BTN1 == 0 ]; then
     echo "Button Held. Quitting application";
     break 3 #lets get out
   fi
